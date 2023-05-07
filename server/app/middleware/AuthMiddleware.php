@@ -7,7 +7,7 @@ use Phalcon\Http\Response;
 
 class AuthMiddleware implements MiddlewareInterface
 {
-    public function beforeRoute(Micro $app)
+    public function call(Micro $app)
     {
         $access_token = $app->request->getHeader("access_token");
         if(!$access_token) 

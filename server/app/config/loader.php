@@ -12,4 +12,3 @@ $loader->registerDirs(
         $config->application->middlewareDir
     ]
 )->register();
-

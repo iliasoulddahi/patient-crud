@@ -1,10 +1,10 @@
 <?php
 
-use App\Middleware\AuthMiddleware;
+// use App\Middleware\AuthMiddleware;
 
 $router = $di->getRouter();
 
-$authMiddleWare = new AuthMiddleware();
+// $authMiddleWare = new AuthMiddleware();
 $router->add(
     '/',
     [
