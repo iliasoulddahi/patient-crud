@@ -11,7 +11,7 @@ $router->add(
     ]
 )->via(['GET']);
 
-//create new patient
+//get all
 $router->addGet('/patient', [
     'controller'=>'patient',
     'action'=> 'index'
@@ -32,5 +32,11 @@ $router->addPut('/patient/{id}', [
     'controller'=>'patient',
     'action'=> 'update'
 ]);
+// delete patient
+$router->addDelete('/patient/{id}', [
+    'controller'=>'patient',
+    'action'=> 'delete'
+]);
+
 
 $router->handle($_SERVER['REQUEST_URI']);

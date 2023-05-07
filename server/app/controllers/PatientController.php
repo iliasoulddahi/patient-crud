@@ -101,22 +101,22 @@ class PatientController extends ControllerBase
         
         $putData = $this->request->getPut();
         if(isset($putData["name"])) {
-            $patient->name = $putData("name");
+            $patient->name = $putData["name"];
         }
         if(isset($putData["sex"])) {
-            $patient->sex = $putData("sex");
+            $patient->sex = $putData["sex"];
         }
         if(isset($putData["religion"])) {
-            $patient->religion = $putData("religion");
+            $patient->religion = $putData["religion"];
         }
         if(isset($putData["phone"])) {
-            $patient->phone = $putData("phone");
+            $patient->phone = $putData["phone"];
         }
         if(isset($putData["address"])) {
-            $patient->address = $putData("address");
+            $patient->address = $putData["address"];
         }
         if(isset($putData["nik"])) {
-            $patient->nik = $putData("nik");
+            $patient->nik = $putData["nik"];
         }
 
         if(!$patient->save())
@@ -136,9 +136,40 @@ class PatientController extends ControllerBase
             $this->response->setStatusCode(200, "OK");
             return $this->response->setJsonContent([
                 "status"=> [
-                    "code"=> 400,
+                    "code"=> 200,
                     "response" => "success",
                     "message"=> "patient updated successfully"
+                ],
+                "result"=> new stdClass()
+            ]);
+        }
+    }
+
+    public function deleteAction(){
+        $id = $this->dispatcher->getParam("id");
+        $patient = Patient::findFirstById($id);
+
+        if(!$patient)
+        {
+            $this->response->setStatusCode(404, "Not Found");
+            return $this->response->setJsonContent([
+                "status"=> [
+                    "code"=> 404,
+                    "response" => "error",
+                    "message"=> "patient not found"
+                ],
+                "result"=> new stdClass()
+            ]);
+        }
+        else
+        {
+            $patient->delete();
+            $this->response->setStatusCode(200, "OK");
+            return $this->response->setJsonContent([
+                "status"=> [
+                    "code"=> 200,
+                    "response" => "success",
+                    "message"=> "patient deleted successfully"
                 ],
                 "result"=> new stdClass()
             ]);

@@ -7,7 +7,7 @@ class IndexController extends ControllerBase
     public function indexAction()
     {
         return $this->response->setJsonContent([
-            'message' => 'Hello, World!'
+            'message' => 'server active'
         ]);
     }
 
