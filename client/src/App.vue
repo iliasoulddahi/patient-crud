@@ -1,10 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <RouterView />
+  <div class="drawer drawer-mobile">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+   
+    <div class="">
+      <RouterView />
+    </div>
+
+    <label for="my-drawer-2" class=" cursor-pointer fixed left-10 top-7 drawer-button lg:hidden w-20"><i class="bi bi-caret-right text-5xl"></i></label>
+  
+  </div> 
+  <div class="drawer-side">
+    <label for="my-drawer-2" class="drawer-overlay"></label>
+    <ul class="menu p-4 w-80 bg-base-100 text-base-content">
+      <li><h1 class="font-bold">Hospital xyz</h1></li> 
+
+      <li><RouterLink to="/patient-list">Patient List</RouterLink></li>
+      <li><RouterLink to="/add-new-patient">Add New Patient</RouterLink></li>
+    </ul>
+    
+  </div>
+</div>
+
 </template>
 
 <style scoped>

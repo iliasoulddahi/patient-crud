@@ -9,6 +9,5 @@ $loader->registerDirs(
     [
         $config->application->controllersDir,
         $config->application->modelsDir,
-        $config->application->middlewareDir
     ]
 )->register();
