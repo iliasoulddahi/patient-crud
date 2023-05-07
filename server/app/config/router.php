@@ -1,13 +1,16 @@
 <?php
 
+use App\Middleware\AuthMiddleware;
+
 $router = $di->getRouter();
 
-// Define your routes here
+$authMiddleWare = new AuthMiddleware();
 $router->add(
     '/',
     [
         'controller' => 'Index',
         'action'     => 'index',
+        'middleware' => $authMiddleWare
     ]
 )->via(['GET']);
 

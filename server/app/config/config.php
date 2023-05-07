@@ -24,13 +24,11 @@ return new \Phalcon\Config([
         'viewsDir'       => APP_PATH . '/views/',
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
+        'middlewareDir' => APP_PATH . '/middlewares/',
         'cacheDir'       => BASE_PATH . '/cache/',
         'baseUri'        => '/',
         'logInDb' => true,
-        'migrationsTsBased' => true, // true - Use TIMESTAMP as version name, false - use versions
-        'exportDataFromTables' => [
-            // Tables names
-            // Attention! It will export data every new migration
-        ],
+        'migrationsTsBased' => true, 
+        'exportDataFromTables' => [],
     ]
 ]);
